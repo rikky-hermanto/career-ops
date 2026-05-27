@@ -178,21 +178,6 @@ Career-ops is a single slash command with multiple modes:
 /career-ops project        → Evaluate a portfolio project
 ```
 
-/career-ops pipeline processes all the pending URLs in data/pipeline.md — it goes through each unchecked item one by one and runs a full evaluation on it:
-
-Fetches the job posting — navigates to the URL with Playwright to verify it's still active
-Evaluates the offer — scores it A–F across dimensions like role fit, comp, tech stack, company quality, location, and legitimacy
-Generates a report — saves it to reports/ in the standard format
-Creates a tailored CV PDF — generates an ATS-optimized version targeting that specific role
-Updates the tracker — adds the entry to data/applications.md with score and status
-You've got 109 new offers queued up, so running pipeline on all of them would be a massive batch. Typically you'd either:
-
-Run it selectively — pick the most promising companies (e.g. "evaluate just the Airwallex and Anthropic ones")
-Run /career-ops batch — spawns parallel workers to process many URLs simultaneously, much faster than one-by-one
-Run pipeline on a subset — e.g. "evaluate the top 10 by company quality"
-
-Or just paste a job URL or description directly -- career-ops auto-detects it and runs the full pipeline.
-
 ## How It Works
 
 ```
