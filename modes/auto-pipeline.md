@@ -18,11 +18,11 @@ If the input is a **URL** (not pasted JD text), follow this strategy to extract 
 
 ## Step 1 — A-G Evaluation
 
-Execute the same as the `oferta` mode (read `modes/oferta.md` for all A-F blocks + Block G Posting Legitimacy).
+Execute the same as the `oferta` mode (read `modes/offer.md` for all A-F blocks + Block G Posting Legitimacy).
 
 ## Step 2 — Save Report .md
 
-Save the full evaluation in `reports/{###}-{company-slug}-{YYYY-MM-DD}.md` (see format in `modes/oferta.md`).
+Save the full evaluation in `reports/{###}-{company-slug}-{YYYY-MM-DD}.md` (see format in `modes/offer.md`).
 Include Block G in the saved report. Add **URL:** {url} and **Legitimacy:** {tier} to the report header.
 
 ## Step 3 — Generate PDF
@@ -73,3 +73,25 @@ If the final score is >= 4.5, generate a draft of responses for the application 
 Record it in `data/applications.md` with all columns including Report and PDF as ✅.
 
 **If any step fails**, continue with the next ones and mark the failed step as pending in the tracker.
+
+## Step 6 — Mark as Processed in pipeline.md (MANDATORY, regardless of outcome)
+
+After every evaluation — whether the score is high or low, whether PDF was generated or not — **always** close the loop in `data/pipeline.md`:
+
+1. Search `data/pipeline.md` for the URL of the evaluated job
+2. If found as `- [ ]`:
+   - Replace `- [ ]` with `- [x]`
+   - Append score and report link: `| {score}/5 → [{###}](reports/{###}-{slug}-{date}.md)`
+   - Example: `- [x] https://... | Intercom — Principal Engineer | Dublin | 4.2/5 → [063](reports/063-intercom-2026-05-27.md)`
+   - Keep the entry in its current tier section — **do not move it**
+3. Also add an entry to the `## Processed` section at the bottom of the file under today's date heading:
+   ```
+   ### YYYY-MM-DD — {Company} ({N} role{s})
+   | # | Role | Score | Report |
+   |---|------|-------|--------|
+   | NNN | {Role} ({Location}) | {score}/5 | [NNN](reports/...) |
+   ```
+   If today's heading already exists, append the new row to its table.
+4. If the URL was **not** found in `data/pipeline.md` — skip silently (the URL was pasted directly, not from the inbox).
+
+**This step is not optional.** An evaluated job that still shows `- [ ]` in the pipeline is a data integrity issue — it will be re-evaluated on the next `/career-ops pipeline` run, wasting time and tokens.

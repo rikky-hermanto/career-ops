@@ -1,0 +1,254 @@
+# portals-dotnet.yml — C#/.NET focused scan config
+# Use with: $env:CAREER_OPS_PORTALS="portals-dotnet.yml"; $env:CAREER_OPS_PIPELINE="data/pipeline-dotnet.md"; node scan.mjs
+#
+# Title filter: ONLY roles that explicitly mention .NET or C# in the title.
+# Note: many C# roles use generic titles ("Senior Backend Engineer") — use the
+# websearch queries below to catch those via JD keyword matching.
+
+title_filter:
+  positive:
+    - ".NET"
+    - "C#"
+    - "ASP.NET"
+    - "dotnet"
+    - "Dot Net"
+
+  negative:
+    - "Frontend"
+    - "Front-end"
+    - "Mobile Engineer"
+    - "iOS"
+    - "Android"
+    - "UI/UX"
+    - "Data Scientist"
+    - "Data Analyst"
+    - "Marketing"
+    - "Sales"
+    - "Recruiter"
+    - "HR"
+    - "Junior"
+    - "Entry Level"
+    - "Graduate"
+    - "Intern"
+    - "PHP"
+    - "Laravel"
+    - "WordPress"
+    - "QA Engineer"
+    - "Test Engineer"
+
+  seniority_boost:
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Architect"
+    - "Manager"
+    - "Senior"
+
+# -- WebSearch Discovery Queries --
+# All queries explicitly include .NET / C# to surface roles where the JD mentions
+# C# but the title doesn't (very common — most listings just say "Senior Backend Engineer").
+
+search_queries:
+
+  - name: LinkedIn — Senior .NET / C# Backend Engineer remote
+    query: 'site:linkedin.com/jobs "Senior" ".NET" OR "C#" "Backend Engineer" OR "Software Engineer" remote APAC OR Australia OR Singapore'
+    enabled: true
+
+  - name: LinkedIn — .NET Tech Lead / Staff Engineer
+    query: 'site:linkedin.com/jobs ".NET" OR "C#" "Technical Lead" OR "Tech Lead" OR "Staff Engineer" remote APAC OR Australia OR Singapore'
+    enabled: true
+
+  - name: LinkedIn — Senior .NET Engineer Europe relocation
+    query: 'site:linkedin.com/jobs ".NET" OR "C#" "Senior" "visa sponsorship" OR "relocation" backend OR engineer'
+    enabled: true
+
+  - name: LinkedIn — Senior .NET / C# Engineer AU/NZ
+    query: 'site:linkedin.com/jobs ".NET" OR "C#" "Senior" engineer OR backend Australia OR "New Zealand" remote OR hybrid'
+    enabled: true
+
+  - name: Greenhouse — C#/.NET Backend roles
+    query: 'site:job-boards.greenhouse.io ".NET" OR "C#" "Senior" OR "Staff" OR "Lead" backend OR engineer remote'
+    enabled: true
+
+  - name: Ashby — C#/.NET Backend roles
+    query: 'site:jobs.ashbyhq.com ".NET" OR "C#" "Senior" OR "Staff" OR "Lead" backend OR engineer remote'
+    enabled: true
+
+  - name: Seek — C#/.NET Senior Engineer AU
+    query: 'site:seek.com.au ".NET" OR "C#" "Senior" "backend" OR "software engineer" remote OR hybrid Australia'
+    enabled: true
+
+  - name: YC — .NET / C# Backend APAC
+    query: 'site:workatastartup.com ".NET" OR "C#" "Senior Backend" OR "Staff Engineer" remote APAC OR Australia'
+    enabled: true
+
+  - name: HN Who's Hiring — .NET / C#
+    query: 'site:news.ycombinator.com ".NET" OR "C#" "Senior Backend" OR "Technical Lead" OR "Staff Engineer" remote'
+    enabled: true
+
+# -- Tracked companies --
+# Companies known for .NET/C# stacks are marked DOTNET-PRIORITY.
+# All others kept enabled — many have mixed stacks with .NET teams.
+
+tracked_companies:
+
+  # ========================================================
+  # DOTNET-PRIORITY — Known .NET/C# shops
+  # ========================================================
+
+  - name: Xero
+    careers_url: https://jobs.lever.co/xero
+    notes: "DOTNET-PRIORITY — Wellington NZ / Sydney AU. Accounting SaaS. Strong .NET/C# backend heritage."
+    enabled: true
+
+  - name: Atlassian
+    careers_url: https://www.atlassian.com/company/careers
+    scan_method: websearch
+    scan_query: 'site:atlassian.com/company/careers ".NET" OR "C#" "Senior" "Backend" OR "Software Engineer" OR "Technical Lead"'
+    notes: "DOTNET-PRIORITY — Sydney AU. Jira/Confluence. Distributed Java/.NET teams. Remote-first."
+    enabled: true
+
+  - name: REA Group
+    careers_url: https://www.rea-group.com/careers/
+    scan_method: websearch
+    scan_query: 'site:rea-group.com/careers ".NET" OR "C#" "Senior" OR "Technical Lead" OR "Staff Engineer"'
+    notes: "DOTNET-PRIORITY — Melbourne AU. Real estate marketplace. Known .NET backend stack."
+    enabled: true
+
+  - name: SEEK Limited
+    careers_url: https://www.seek.com.au/career-advice/company/seek-limited
+    scan_method: websearch
+    scan_query: '"SEEK Limited" careers ".NET" OR "C#" "Senior" OR "Technical Lead" site:seek.com.au OR site:job-boards.greenhouse.io'
+    notes: "DOTNET-PRIORITY — Melbourne AU. Jobs platform. .NET backend teams."
+    enabled: true
+
+  - name: Employment Hero
+    careers_url: https://job-boards.greenhouse.io/employmenthero
+    api: https://boards-api.greenhouse.io/v1/boards/employmenthero/jobs
+    notes: "DOTNET-PRIORITY — Sydney AU. HR/payroll SaaS. .NET/C# backend stack."
+    enabled: true
+
+  - name: Tyro Payments
+    careers_url: https://job-boards.greenhouse.io/tyropayments
+    api: https://boards-api.greenhouse.io/v1/boards/tyropayments/jobs
+    notes: "DOTNET-PRIORITY — Sydney AU. SME payments fintech. .NET stack."
+    enabled: true
+
+  - name: SafetyCulture
+    careers_url: https://job-boards.greenhouse.io/safetyculturepty
+    api: https://boards-api.greenhouse.io/v1/boards/safetyculturepty/jobs
+    notes: "Sydney AU. Operations SaaS (iAuditor). Mixed stack — may have .NET roles."
+    enabled: true
+
+  - name: Airwallex
+    careers_url: https://job-boards.greenhouse.io/airwallex
+    api: https://boards-api.greenhouse.io/v1/boards/airwallex/jobs
+    notes: "Melbourne AU. Global payments fintech. $5.6B valuation. Mixed stack."
+    enabled: true
+
+  - name: Afterpay / Block
+    careers_url: https://job-boards.greenhouse.io/block
+    api: https://boards-api.greenhouse.io/v1/boards/block/jobs
+    notes: "Melbourne AU. BNPL + Cash App. Payments distributed systems."
+    enabled: true
+
+  - name: Zip Co
+    careers_url: https://job-boards.greenhouse.io/zip
+    api: https://boards-api.greenhouse.io/v1/boards/zip/jobs
+    notes: "Sydney AU. BNPL fintech. ASX listed."
+    enabled: true
+
+  - name: Nearmap
+    careers_url: https://job-boards.greenhouse.io/nearmap
+    api: https://boards-api.greenhouse.io/v1/boards/nearmap/jobs
+    notes: "Sydney AU. Aerial imagery + AI analytics. ASX listed."
+    enabled: true
+
+  - name: Culture Amp
+    careers_url: https://www.cultureamp.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:cultureamp.com/about/careers ".NET" OR "C#" "Senior" OR "Technical Lead" OR "Staff Engineer"'
+    notes: "Melbourne AU. Employee experience SaaS. $1.5B valuation."
+    enabled: true
+
+  - name: Wise
+    careers_url: https://job-boards.greenhouse.io/transferwise
+    api: https://boards-api.greenhouse.io/v1/boards/transferwise/jobs
+    notes: "London / Singapore. Cross-border payments. APAC hub in Singapore."
+    enabled: true
+
+  - name: Klarna
+    careers_url: https://jobs.lever.co/klarna
+    notes: "Stockholm / remote. BNPL fintech. Known .NET/C# teams in EU."
+    enabled: true
+
+  - name: Mambu
+    careers_url: https://job-boards.greenhouse.io/mambu
+    api: https://boards-api.greenhouse.io/v1/boards/mambu/jobs
+    notes: "Berlin / Singapore. Cloud banking SaaS. Java/.NET stack."
+    enabled: true
+
+  - name: HubSpot
+    careers_url: https://www.hubspot.com/careers
+    scan_method: websearch
+    scan_query: 'site:hubspot.com/careers ".NET" OR "C#" "Senior" OR "Staff" OR "Technical Lead" backend'
+    notes: "Remote / Dublin. CRM + marketing SaaS. Some .NET teams."
+    enabled: true
+
+  - name: Intercom
+    careers_url: https://job-boards.greenhouse.io/intercom
+    api: https://boards-api.greenhouse.io/v1/boards/intercom/jobs
+    notes: "Dublin / SF / Sydney AU. Customer comms SaaS."
+    enabled: true
+
+  - name: Rippling
+    careers_url: https://job-boards.greenhouse.io/rippling
+    api: https://boards-api.greenhouse.io/v1/boards/rippling/jobs
+    notes: "SF / NYC. HR + IT + Finance SaaS."
+    enabled: true
+
+  - name: Datadog
+    careers_url: https://job-boards.greenhouse.io/datadog
+    api: https://boards-api.greenhouse.io/v1/boards/datadog/jobs
+    notes: "NYC / remote. Observability SaaS. Some .NET agent/integration teams."
+    enabled: true
+
+  - name: Elastic
+    careers_url: https://job-boards.greenhouse.io/elastic
+    api: https://boards-api.greenhouse.io/v1/boards/elastic/jobs
+    notes: "Remote-first. Elasticsearch. .NET client teams exist."
+    enabled: true
+
+  - name: Adyen
+    careers_url: https://jobs.lever.co/adyen
+    notes: "Amsterdam / Singapore. Payments platform. Mixed .NET/Java stack."
+    enabled: true
+
+  - name: Booking Holdings
+    careers_url: https://jobs.lever.co/bookingholdings
+    notes: "Global. Booking.com uses .NET heavily."
+    enabled: true
+
+  - name: Skyscanner
+    careers_url: https://job-boards.greenhouse.io/skyscanner
+    api: https://boards-api.greenhouse.io/v1/boards/skyscanner/jobs
+    notes: "Edinburgh / London / Singapore. Flight search. Mixed stack."
+    enabled: true
+
+  - name: GetYourGuide
+    careers_url: https://job-boards.greenhouse.io/getyourguide
+    api: https://boards-api.greenhouse.io/v1/boards/getyourguide/jobs
+    notes: "Berlin. Travel experiences marketplace."
+    enabled: true
+
+  - name: Hinge Health
+    careers_url: https://job-boards.greenhouse.io/hingehealth
+    api: https://boards-api.greenhouse.io/v1/boards/hingehealth/jobs
+    notes: "SF / remote. Digital health."
+    enabled: true
+
+  - name: GitLab
+    careers_url: https://job-boards.greenhouse.io/gitlab
+    api: https://boards-api.greenhouse.io/v1/boards/gitlab/jobs
+    notes: "Fully remote. DevOps platform. Some .NET SDK/integration teams."
+    enabled: true

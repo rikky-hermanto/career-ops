@@ -1,0 +1,765 @@
+# Portal Scanner Configuration
+# Tailored for: Rikky Hermanto Hasibuan
+# Profile: Senior Backend Engineer / Tech Lead — C#/.NET, Distributed Systems, Cloud-Native
+# Target markets: Australia (primary), Singapore, Japan, Europe (relocation), APAC-aligned remote
+# Industries: SaaS/B2B, Fintech/Payments, Healthtech, Developer Tooling, Travel Tech, Climate Tech
+# Generated from config/profile.yml on 2026-05-13
+
+# -- Title filter --
+# At least 1 positive must match AND 0 negatives must match (case-insensitive).
+# NOTE: .NET and Java intentionally NOT in negatives — Rikky IS a .NET/Java developer.
+
+title_filter:
+  positive:
+    - \"Senior Backend\"
+    - \"Staff Engineer\"
+    - \"Technical Lead\"
+    - \"Tech Lead\"
+    - \"Solutions Architect\"
+    - \"Engineering Manager\"
+    - \"Principal Engineer\"
+    - \"AI Engineer\"
+    - \"Applied AI\"
+    - \"Platform Engineer\"
+    - \"Infrastructure Engineer\"
+    - \"Cloud Engineer\"
+    - \"Distributed Systems\"
+    - \"Backend Software Engineer\"
+    - \".NET Engineer\"
+    - \"C# Engineer\"
+    - \"Java Engineer\"
+
+  negative:
+    - \"Frontend\"
+    - \"Front-end\"
+    - \"Mobile Engineer\"
+    - \"iOS\"
+    - \"Android\"
+    - \"UI/UX\"
+    - \"Product Designer\"
+    - \"Data Scientist\"
+    - \"Data Analyst\"
+    - \"Marketing\"
+    - \"Sales\"
+    - \"Recruiter\"
+    - \"HR\"
+    - \"Junior\"
+    - \"Entry Level\"
+    - \"Graduate\"
+    - \"Intern\"
+    - \"PHP\"
+    - \"Laravel\"
+    - \"WordPress\"
+    - \"Blockchain\"
+    - \"Web3\"
+    - \"QA Engineer\"
+    - \"Test Engineer\"
+    - \"Manual Tester\"
+
+  # Boost score if these words appear (internal sorting only)
+  seniority_boost:
+    - \"Staff\"
+    - \"Principal\"
+    - \"Lead\"
+    - \"Architect\"
+    - \"Manager\"
+
+# -- WebSearch Discovery Queries --
+# Broad discovery across job portals using site: filters.
+# Enabled queries run during /career-ops scan.
+
+search_queries:
+  # -- Y Combinator --
+  - name: YC — Backend / Founding Engineer APAC
+    query: 'site:workatastartup.com \"Senior Backend Engineer\" OR \"Founding Engineer\" OR \"Staff Engineer\" remote APAC OR Australia'
+    enabled: true
+
+  - name: YC — AI Engineer remote APAC
+    query: 'site:workatastartup.com \"AI Engineer\" OR \"Applied AI\" remote APAC OR Australia OR Singapore'
+    enabled: true
+
+  # -- LinkedIn --
+  # LinkedIn is the dominant job board globally and the #1 source for APAC/Australian roles.
+  # Searched via Google site: filters — LinkedIn's own API is not publicly accessible.
+
+  - name: LinkedIn — Senior Backend Engineer APAC
+    query: 'site:linkedin.com/jobs \"Senior Backend Engineer\" remote APAC OR Australia OR Singapore OR \"New Zealand\"'
+    enabled: true
+
+  - name: LinkedIn — Technical Lead / Tech Lead APAC
+    query: 'site:linkedin.com/jobs \"Technical Lead\" OR \"Tech Lead\" backend remote APAC OR Australia OR Singapore'
+    enabled: true
+
+  - name: LinkedIn — Staff / Principal Engineer backend
+    query: 'site:linkedin.com/jobs \"Staff Engineer\" OR \"Principal Engineer\" backend OR distributed remote APAC OR Australia'
+    enabled: true
+
+  - name: LinkedIn — Senior .NET / C# Engineer remote
+    query: 'site:linkedin.com/jobs \"Senior\" \".NET\" OR \"C#\" \"Software Engineer\" OR \"Backend Engineer\" remote APAC OR Australia'
+    enabled: true
+
+  - name: LinkedIn — AI Engineer backend remote APAC
+    query: 'site:linkedin.com/jobs \"AI Engineer\" OR \"Applied AI Engineer\" backend OR distributed remote APAC OR Australia OR Singapore'
+    enabled: true
+
+  - name: LinkedIn — Senior Backend Europe relocation
+    query: 'site:linkedin.com/jobs \"Senior Backend Engineer\" OR \"Staff Engineer\" OR \"Technical Lead\" Europe \"visa sponsorship\" OR \"relocation\"'
+    enabled: true
+
+  - name: LinkedIn — Founding Engineer / Tech Lead startup
+    query: 'site:linkedin.com/jobs \"Founding Engineer\" OR \"Technical Lead\" OR \"Lead Backend\" startup remote APAC OR Australia'
+    enabled: true
+
+  # -- Remote-first async culture companies (Grafana/Supabase archetype) --
+
+  - name: Greenhouse — Remote-first async culture backend
+    query: 'site:job-boards.greenhouse.io \"Senior Backend\" OR \"Staff Engineer\" OR \"Technical Lead\" \"fully remote\" OR \"remote-first\" OR \"all-remote\" -\"hybrid\" developer-tools OR infrastructure OR platform'
+    enabled: true
+
+  - name: Ashby — Remote-first async culture backend
+    query: 'site:jobs.ashbyhq.com \"Senior Backend\" OR \"Staff Engineer\" OR \"Technical Lead\" \"fully remote\" OR \"remote-first\" OR \"async\" developer-tools OR infrastructure OR platform OR open-source'
+    enabled: true
+
+  # -- HN Who's Hiring --
+
+  - name: HN Who's Hiring — Backend APAC
+    query: 'site:news.ycombinator.com \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\" APAC OR Australia OR Singapore OR remote'
+    enabled: true
+
+
+# -- Tracked companies --
+# Organized by market relevance to Rikky's profile.
+
+tracked_companies:
+
+  # ========================================================
+  # REMOTE-FIRST ASYNC CULTURE — PRIORITY TIER
+  # Companies explicitly known for async-first, fully-distributed culture
+  # (Grafana/Supabase archetype). Scanned first so results surface early.
+  # Criteria: no required HQ presence, transparent async handbook or ethos,
+  # open-source DNA, distributed teams across all timezones.
+  # ========================================================
+
+  - name: Grafana Labs
+    careers_url: https://job-boards.greenhouse.io/grafanalabs
+    api: https://boards-api.greenhouse.io/v1/boards/grafanalabs/jobs
+    notes: \"PRIORITY — Remote-first async culture. Grafana/Prometheus/Loki/Tempo. Direct alignment with his observability stack.\"
+    enabled: true
+
+  - name: Supabase
+    careers_url: https://jobs.ashbyhq.com/supabase
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/supabase \"Senior\" OR \"Staff\" backend OR engineer'
+    notes: \"PRIORITY — Remote-first async culture. PostgreSQL + Auth + Storage. Perfect fit — his PostgreSQL/Supabase/Auth0 expertise.\"
+    enabled: true
+
+  - name: GitLab
+    careers_url: https://job-boards.greenhouse.io/gitlab
+    api: https://boards-api.greenhouse.io/v1/boards/gitlab/jobs
+    notes: \"PRIORITY — Fully remote all-remote pioneer, async-first handbook (handbook.gitlab.com). DevOps platform. Strong distributed systems + backend teams.\"
+    enabled: true
+
+  - name: Elastic
+    careers_url: https://job-boards.greenhouse.io/elastic
+    api: https://boards-api.greenhouse.io/v1/boards/elastic/jobs
+    notes: \"PRIORITY — Remote-first, distributed globally. Elasticsearch/Kibana/APM. Strong backend/infra alignment with his observability stack.\"
+    enabled: true
+
+  - name: 1Password
+    careers_url: https://jobs.lever.co/1password
+    notes: \"PRIORITY — Remote-first async culture. Security/auth platform. Auth0/identity expertise alignment. Strong WLB culture.\"
+    enabled: true
+
+  - name: HashiCorp
+    careers_url: https://job-boards.greenhouse.io/hashicorp
+    api: https://boards-api.greenhouse.io/v1/boards/hashicorp/jobs
+    notes: \"PRIORITY — Remote-first. Terraform/Vault/Consul/Nomad. DevOps/infra tooling. Strong distributed systems engineering culture.\"
+    enabled: true
+
+  - name: PostHog
+    careers_url: https://jobs.ashbyhq.com/posthog
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/posthog \"Senior\" OR \"Staff\" backend OR engineer'
+    notes: \"PRIORITY — Fully remote, open-source product analytics. Small high-trust async team. Strong engineering culture, no meetings culture.\"
+    enabled: true
+
+  - name: Fly.io
+    careers_url: https://fly.io/jobs
+    scan_method: websearch
+    scan_query: '\"Fly.io\" careers \"Senior Backend\" OR \"Staff Engineer\" OR \"Platform Engineer\" site:jobs.ashbyhq.com OR site:fly.io'
+    notes: \"PRIORITY — Remote-first, globally distributed. Application deployment platform. Rust/Go backend + distributed systems engineering.\"
+    enabled: true
+
+  # ========================================================
+  # AUSTRALIAN SAAS & TECH
+  # Primary sweet spot — Rikky's entire career was Australian-based companies.
+  # These companies are most likely to support APAC time zones and offer
+  # relocation or remote positions aligned with his background.
+  # ========================================================
+
+  - name: Atlassian
+    careers_url: https://www.atlassian.com/company/careers
+    scan_method: websearch
+    scan_query: 'site:atlassian.com/company/careers \"Senior\" \"Backend\" OR \"Software Engineer\" OR \"Technical Lead\" OR \"Staff\"'
+    notes: \"Sydney AU. Jira/Confluence/Trello. Remote-first. 12,000+ employees. Distributed Java/.NET teams.\"
+    enabled: true
+
+  - name: Canva
+    careers_url: https://www.canva.com/careers/
+    scan_method: websearch
+    scan_query: 'site:canva.com/careers \"Senior Backend Engineer\" OR \"Technical Lead\" OR \"Staff Engineer\" OR \"AI Engineer\"'
+    notes: \"Sydney AU. Design platform unicorn ($26B+). Strong backend + distributed systems team.\"
+    enabled: true
+
+  - name: Xero
+    careers_url: https://jobs.lever.co/xero
+    notes: \"Wellington NZ / Sydney AU. Accounting SaaS. APAC-friendly. Strong .NET/backend heritage.\"
+    enabled: true
+
+  - name: SafetyCulture
+    careers_url: https://job-boards.greenhouse.io/safetyculturepty
+    api: https://boards-api.greenhouse.io/v1/boards/safetyculturepty/jobs
+    notes: \"Sydney AU. Operations SaaS (iAuditor). 700+ employees. Engineering-led.\"
+    enabled: true
+
+  - name: Culture Amp
+    careers_url: https://www.cultureamp.com/about/careers
+    scan_method: websearch
+    scan_query: 'site:cultureamp.com/about/careers \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\"'
+    notes: \"Melbourne AU. Employee experience SaaS. $1.5B valuation. Remote-friendly.\"
+    enabled: true
+
+  - name: Envato
+    careers_url: https://careers.envato.com
+    scan_method: websearch
+    scan_query: 'site:careers.envato.com \"Senior Backend\" OR \"Technical Lead\" OR \"Software Engineer\"'
+    notes: \"Melbourne AU. Creative marketplace (Envato Elements, ThemeForest). Engineering-led.\"
+    enabled: true
+
+  - name: Employment Hero
+    careers_url: https://job-boards.greenhouse.io/employmenthero
+    api: https://boards-api.greenhouse.io/v1/boards/employmenthero/jobs
+    notes: \"Sydney AU. HR/payroll SaaS. 800+ employees. Remote-friendly.\"
+    enabled: true
+
+  - name: Airwallex
+    careers_url: https://job-boards.greenhouse.io/airwallex
+    api: https://boards-api.greenhouse.io/v1/boards/airwallex/jobs
+    notes: \"Melbourne AU. Global payments fintech. $5.6B valuation. Strong distributed systems team.\"
+    enabled: true
+
+  - name: REA Group
+    careers_url: https://www.rea-group.com/careers/
+    scan_method: websearch
+    scan_query: 'site:rea-group.com/careers \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\" OR \"Senior Software Engineer\"'
+    notes: \"Melbourne AU. Real estate digital marketplace. Flex-remote. ASX-listed.\"
+    enabled: true
+
+  - name: SEEK Limited
+    careers_url: https://www.seek.com.au/career-advice/company/seek-limited
+    scan_method: websearch
+    scan_query: '\"SEEK Limited\" careers \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\" site:seek.com.au OR site:job-boards.greenhouse.io'
+    notes: \"Melbourne AU. Jobs platform. Strong backend/distributed systems team.\"
+    enabled: true
+
+  - name: Afterpay / Block
+    careers_url: https://job-boards.greenhouse.io/block
+    api: https://boards-api.greenhouse.io/v1/boards/block/jobs
+    notes: \"Melbourne AU / SF. BNPL + Cash App. Payments distributed systems. APAC engineering.\"
+    enabled: true
+
+  - name: Zip Co
+    careers_url: https://job-boards.greenhouse.io/zip
+    api: https://boards-api.greenhouse.io/v1/boards/zip/jobs
+    notes: \"Sydney AU. BNPL fintech. ASX listed. APAC-focused.\"
+    enabled: true
+
+  - name: Linktree
+    careers_url: https://jobs.lever.co/linktree
+    notes: \"Melbourne AU. Link-in-bio SaaS. Fast growth. Remote-friendly backend teams.\"
+    enabled: true
+
+  - name: Eucalyptus
+    careers_url: https://jobs.ashbyhq.com/eucalyptus
+    notes: \"Sydney AU. Digital health unicorn (Juniper, Kin, Normal). Series C. Healthtech + SaaS.\"
+    enabled: true
+
+  - name: Dovetail
+    careers_url: https://dovetail.com/careers/
+    scan_method: websearch
+    scan_query: 'site:dovetail.com/careers \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\"'
+    notes: \"Sydney AU. User research SaaS. Remote-friendly. APAC-based.\"
+    enabled: true
+
+  - name: Tyro Payments
+    careers_url: https://job-boards.greenhouse.io/tyropayments
+    api: https://boards-api.greenhouse.io/v1/boards/tyropayments/jobs
+    notes: \"Sydney AU. SME payments fintech. ASX listed.\"
+    enabled: true
+
+  - name: Up Bank
+    careers_url: https://up.com.au/careers
+    scan_method: websearch
+    scan_query: '\"Up Bank\" OR \"Ferocia\" careers \"Senior\" \"Engineer\" OR \"Backend\" site:seek.com.au OR site:jobs.lever.co'
+    notes: \"Melbourne AU. Digital bank backed by Bendigo Bank. Strong engineering culture.\"
+    enabled: true
+
+  - name: Nearmap
+    careers_url: https://job-boards.greenhouse.io/nearmap
+    api: https://boards-api.greenhouse.io/v1/boards/nearmap/jobs
+    notes: \"Sydney AU. Aerial imagery + AI analytics. ASX listed.\"
+    enabled: true
+
+  - name: Bugcrowd
+    careers_url: https://job-boards.greenhouse.io/bugcrowd
+    api: https://boards-api.greenhouse.io/v1/boards/bugcrowd/jobs
+    notes: \"Sydney AU / SF. Security platform. Remote-friendly. Auth/security alignment.\"
+    enabled: true
+
+  - name: Basiq
+    careers_url: https://basiq.io/careers
+    scan_method: websearch
+    scan_query: '\"Basiq\" careers \"Senior\" \"Engineer\" OR \"Backend\" site:jobs.lever.co OR site:seek.com.au'
+    notes: \"Sydney AU. Open banking API platform. Auth + identity + fintech alignment.\"
+    enabled: true
+
+  # ========================================================
+  # SINGAPORE & APAC TECH
+  # Key APAC tech hub — ideal for relocation or remote APAC roles.
+  # ========================================================
+
+  - name: Grab
+    careers_url: https://grab.careers
+    scan_method: websearch
+    scan_query: 'site:grab.careers \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\" OR \"Principal Engineer\"'
+    notes: \"Singapore. Super-app (ride-hailing, payments, delivery). Large distributed systems team.\"
+    enabled: true
+
+  - name: Sea Group / Shopee
+    careers_url: https://career.seagroup.com
+    scan_method: websearch
+    scan_query: 'site:career.seagroup.com \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\" Singapore'
+    notes: \"Singapore. Shopee + SeaMoney + Garena. E-commerce + fintech platform.\"
+    enabled: true
+
+  - name: Carousell
+    careers_url: https://careers.carousell.com
+    scan_method: websearch
+    scan_query: 'site:careers.carousell.com \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\"'
+    notes: \"Singapore. C2C marketplace. Series D. APAC-aligned teams.\"
+    enabled: true
+
+  - name: Nium
+    careers_url: https://job-boards.greenhouse.io/nium
+    api: https://boards-api.greenhouse.io/v1/boards/nium/jobs
+    notes: \"Singapore. Global payments infrastructure. $200M Series D. Fintech alignment.\"
+    enabled: true
+
+  - name: Funding Societies / Modalku
+    careers_url: https://fundingsocieties.com/careers
+    scan_method: websearch
+    scan_query: '\"Funding Societies\" OR \"Modalku\" careers \"Senior Backend\" OR \"Technical Lead\" site:jobs.lever.co'
+    notes: \"Singapore. SME lending fintech. APAC-focused. Series C+.\"
+    enabled: true
+
+  - name: Gojek / GoTo
+    careers_url: https://jobs.lever.co/gotogroup
+    notes: \"Jakarta ID / Singapore. Super-app (GoTo Group). APAC-aligned distributed systems.\"
+    enabled: true
+
+  # ========================================================
+  # JAPAN TECH
+  # Preferred relocation destination — English-friendly companies only.
+  # ========================================================
+
+  - name: Mercari
+    careers_url: https://careers.mercari.com
+    scan_method: websearch
+    scan_query: 'site:careers.mercari.com \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\" OR \"Senior Software Engineer\"'
+    notes: \"Tokyo JP. C2C marketplace app. English-friendly, strong remote culture.\"
+    enabled: true
+
+  - name: SmartHR
+    careers_url: https://hello.smarthr.jp/en/jobs/
+    scan_method: websearch
+    scan_query: '\"SmartHR\" careers \"Senior Backend\" OR \"Technical Lead\" OR \"Senior Engineer\" English'
+    notes: \"Tokyo JP. HR SaaS unicorn. English-language backend roles available.\"
+    enabled: true
+
+  - name: Money Forward
+    careers_url: https://corp.moneyforward.com/en/careers/
+    scan_method: websearch
+    scan_query: '\"Money Forward\" careers \"Senior Backend\" OR \"Technical Lead\" OR \"Senior Engineer\" English'
+    notes: \"Tokyo JP. B2B SaaS fintech. English-friendly engineering team.\"
+    enabled: true
+
+  # ========================================================
+  # DEVELOPER TOOLING & INFRASTRUCTURE
+  # Strong alignment: PostgreSQL, Auth/Identity, Distributed Systems, Observability.
+  # ========================================================
+
+  - name: Supabase
+    careers_url: https://jobs.ashbyhq.com/supabase
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/supabase \"Senior\" OR \"Staff\" backend OR engineer'
+    notes: \"Remote-first. PostgreSQL + Auth + Storage. (Listed in priority tier above — disabled here to avoid duplicate scans.)\"
+    enabled: false
+
+  - name: WorkOS
+    careers_url: https://jobs.ashbyhq.com/workos
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/workos \"Senior\" OR \"Staff\" backend OR engineer'
+    notes: \"Remote-first. Enterprise auth platform (SSO, SCIM). Direct alignment with Auth0/OAuth/OIDC expertise.\"
+    enabled: true
+
+  - name: Clerk
+    careers_url: https://jobs.ashbyhq.com/clerk
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/clerk \"Senior\" OR \"Staff\" backend OR engineer'
+    notes: \"Remote-first. Auth & user management for developers. Identity expertise alignment.\"
+    enabled: true
+
+  - name: Temporal
+    careers_url: https://job-boards.greenhouse.io/temporal
+    api: https://boards-api.greenhouse.io/v1/boards/temporal/jobs
+    notes: \"Remote. Workflow orchestration engine (durable execution). Distributed systems deep alignment.\"
+    enabled: true
+
+  - name: Neon
+    careers_url: https://neon.tech/careers
+    scan_method: websearch
+    scan_query: '\"Neon\" serverless postgres careers \"Senior\" OR \"Staff\" backend OR engineer site:jobs.ashbyhq.com'
+    notes: \"Remote-first. Serverless PostgreSQL. Strong fit for his PostgreSQL + cloud-native expertise.\"
+    enabled: true
+
+  - name: PlanetScale
+    careers_url: https://job-boards.greenhouse.io/planetscale
+    api: https://boards-api.greenhouse.io/v1/boards/planetscale/jobs
+    notes: \"Remote. Serverless MySQL platform. Database + backend engineering.\"
+    enabled: true
+
+  - name: Inngest
+    careers_url: https://jobs.ashbyhq.com/inngest
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/inngest \"Senior\" OR \"Staff\" backend OR engineer'
+    notes: \"Remote. Durable workflow engine for serverless. Event-driven / distributed systems alignment.\"
+    enabled: true
+
+  - name: Datadog
+    careers_url: https://job-boards.greenhouse.io/datadog
+    api: https://boards-api.greenhouse.io/v1/boards/datadog/jobs
+    notes: \"NYC / remote. Observability SaaS. Aligns with his OpenTelemetry/Datadog APM expertise.\"
+    enabled: true
+
+  - name: Grafana Labs
+    careers_url: https://job-boards.greenhouse.io/grafanalabs
+    api: https://boards-api.greenhouse.io/v1/boards/grafanalabs/jobs
+    notes: \"Remote-first. Grafana/Prometheus/Loki/Tempo. (Listed in priority tier above — disabled here to avoid duplicate scans.)\"
+    enabled: false
+
+  - name: Vercel
+    careers_url: https://job-boards.greenhouse.io/vercel
+    api: https://boards-api.greenhouse.io/v1/boards/vercel/jobs
+    notes: \"Remote. Frontend cloud + AI SDK platform. TypeScript/backend platform engineering.\"
+    enabled: true
+
+  - name: Railway
+    careers_url: https://railway.app/careers
+    scan_method: websearch
+    scan_query: '\"Railway\" deployment platform careers \"Senior\" OR \"Staff\" engineer site:jobs.ashbyhq.com'
+    notes: \"Remote-first. Developer deployment platform. Small team, high-impact backend.\"
+    enabled: true
+
+  - name: Resend
+    careers_url: https://jobs.ashbyhq.com/resend
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/resend \"Senior\" OR \"Staff\" backend OR engineer'
+    notes: \"Remote-first. Email API for developers. Backend + DX roles.\"
+    enabled: true
+
+  # ========================================================
+  # FINTECH / PAYMENTS
+  # Target industry — strong alignment with distributed systems + auth + cloud.
+  # ========================================================
+
+  - name: Stripe
+    careers_url: https://stripe.com/jobs
+    scan_method: websearch
+    scan_query: 'site:stripe.com/jobs \"Senior Backend\" OR \"Staff Engineer\" OR \"Technical Lead\" remote APAC OR Singapore'
+    notes: \"SF / Singapore / remote. Payments leader. Strong distributed systems team. Singapore APAC hub.\"
+    enabled: true
+
+  - name: Wise
+    careers_url: https://job-boards.greenhouse.io/transferwise
+    api: https://boards-api.greenhouse.io/v1/boards/transferwise/jobs
+    notes: \"London / Singapore / Tallinn. Cross-border payments. APAC hub in Singapore. Relocation support.\"
+    enabled: true
+
+  - name: Revolut
+    careers_url: https://www.revolut.com/careers/
+    scan_method: websearch
+    scan_query: 'site:revolut.com/careers \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\" APAC OR Singapore OR remote'
+    notes: \"London / Singapore. Neobank with strong APAC expansion. 8,000+ employees.\"
+    enabled: true
+
+  - name: Adyen
+    careers_url: https://jobs.lever.co/adyen
+    notes: \"Amsterdam / Singapore. Payments platform. Singapore APAC engineering hub.\"
+    enabled: true
+
+  - name: Mambu
+    careers_url: https://job-boards.greenhouse.io/mambu
+    api: https://boards-api.greenhouse.io/v1/boards/mambu/jobs
+    notes: \"Berlin / Singapore. Cloud banking SaaS. APAC engineering presence.\"
+    enabled: true
+
+  - name: Klarna
+    careers_url: https://jobs.lever.co/klarna
+    notes: \"Stockholm / remote. BNPL fintech. Strong backend/distributed systems team.\"
+    enabled: true
+
+  # ========================================================
+  # HEALTHTECH
+  # Target industry — cloud-native SaaS patterns transferable.
+  # ========================================================
+
+  - name: Hinge Health
+    careers_url: https://job-boards.greenhouse.io/hingehealth
+    api: https://boards-api.greenhouse.io/v1/boards/hingehealth/jobs
+    notes: \"SF / remote. Digital MSK health. APAC-friendly remote.\"
+    enabled: true
+
+  - name: Cedar
+    careers_url: https://job-boards.greenhouse.io/cedar
+    api: https://boards-api.greenhouse.io/v1/boards/cedar/jobs
+    notes: \"NYC / remote. Healthcare billing SaaS. Backend-heavy distributed systems.\"
+    enabled: true
+
+  - name: Eucalyptus (AU)
+    careers_url: https://jobs.ashbyhq.com/eucalyptus
+    notes: \"Sydney AU. Digital health unicorn. Listed above in AU section — also relevant here.\"
+    enabled: false
+
+  # ========================================================
+  # TRAVEL TECH
+  # Direct domain expertise from Travlr (BBC, MTV, Nickelodeon travel portals).
+  # ========================================================
+
+  - name: Booking Holdings
+    careers_url: https://jobs.lever.co/bookingholdings
+    notes: \"Global. Booking.com / Kayak / OpenTable. Travel tech backend roles.\"
+    enabled: true
+
+  - name: Skyscanner
+    careers_url: https://job-boards.greenhouse.io/skyscanner
+    api: https://boards-api.greenhouse.io/v1/boards/skyscanner/jobs
+    notes: \"Edinburgh / London / Singapore. Flight search platform. APAC Singapore office.\"
+    enabled: true
+
+  - name: TripAdvisor
+    careers_url: https://job-boards.greenhouse.io/tripadvisor
+    api: https://boards-api.greenhouse.io/v1/boards/tripadvisor/jobs
+    notes: \"Boston / remote. Travel review + booking. Backend platform engineering.\"
+    enabled: true
+
+  - name: GetYourGuide
+    careers_url: https://job-boards.greenhouse.io/getyourguide
+    api: https://boards-api.greenhouse.io/v1/boards/getyourguide/jobs
+    notes: \"Berlin. Travel experiences marketplace. Strong distributed systems team.\"
+    enabled: true
+
+  - name: Travelperk
+    careers_url: https://jobs.ashbyhq.com/travelperk
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/travelperk \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\"'
+    notes: \"Barcelona / remote. B2B travel SaaS. Travel domain alignment.\"
+    enabled: true
+
+  # ========================================================
+  # SAAS / B2B SOFTWARE
+  # Preferred company type — product-based SaaS, engineering-led culture.
+  # ========================================================
+
+  - name: HubSpot
+    careers_url: https://www.hubspot.com/careers
+    scan_method: websearch
+    scan_query: 'site:hubspot.com/careers \"Senior Backend\" OR \"Staff Engineer\" OR \"Technical Lead\" remote APAC'
+    notes: \"Remote / Dublin. CRM + marketing SaaS. APAC remote-friendly. Strong WLB culture.\"
+    enabled: true
+
+  - name: Intercom
+    careers_url: https://job-boards.greenhouse.io/intercom
+    api: https://boards-api.greenhouse.io/v1/boards/intercom/jobs
+    notes: \"Dublin / SF / Sydney AU office. Customer comms SaaS. APAC presence.\"
+    enabled: true
+
+  - name: Rippling
+    careers_url: https://job-boards.greenhouse.io/rippling
+    api: https://boards-api.greenhouse.io/v1/boards/rippling/jobs
+    notes: \"SF / NYC. HR + IT + Finance SaaS. Remote-friendly. Strong distributed systems.\"
+    enabled: true
+
+  - name: Linear
+    careers_url: https://jobs.ashbyhq.com/linear
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/linear \"Senior\" backend OR engineer'
+    notes: \"Remote-first. Project management SaaS. Small team, high-impact engineering culture.\"
+    enabled: true
+
+  - name: Notion
+    careers_url: https://job-boards.greenhouse.io/notion
+    api: https://boards-api.greenhouse.io/v1/boards/notion/jobs
+    notes: \"SF / remote. Productivity SaaS with AI features. Backend platform engineering.\"
+    enabled: true
+
+  - name: Monday.com
+    careers_url: https://monday.com/careers
+    scan_method: websearch
+    scan_query: 'site:monday.com/careers \"Senior Backend\" OR \"Technical Lead\" OR \"Staff Engineer\" remote APAC'
+    notes: \"Tel Aviv / remote. Work OS SaaS. APAC-friendly remote.\"
+    enabled: true
+
+  - name: Zendesk
+    careers_url: https://job-boards.greenhouse.io/zendesk
+    api: https://boards-api.greenhouse.io/v1/boards/zendesk/jobs
+    notes: \"SF / Melbourne AU / Singapore. Customer service SaaS. APAC presence.\"
+    enabled: true
+
+  # ========================================================
+  # CLIMATE / SUSTAINABILITY TECH
+  # Target industry — growing sector, cloud-native SaaS pattern.
+  # ========================================================
+
+  - name: Watershed
+    careers_url: https://jobs.ashbyhq.com/watershed
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/watershed \"Senior Backend\" OR \"Staff Engineer\" OR \"Technical Lead\"'
+    notes: \"SF / remote. Enterprise carbon accounting SaaS. Series C.\"
+    enabled: true
+
+  - name: Pachama
+    careers_url: https://job-boards.greenhouse.io/pachama
+    api: https://boards-api.greenhouse.io/v1/boards/pachama/jobs
+    notes: \"SF / remote. Forest carbon market platform. Climate tech.\"
+    enabled: true
+
+  - name: Enverus
+    careers_url: https://job-boards.greenhouse.io/enverus
+    api: https://boards-api.greenhouse.io/v1/boards/enverus/jobs
+    notes: \"Austin / remote. Energy analytics SaaS. Oil & gas + renewables data platform.\"
+    enabled: true
+
+  # ========================================================
+  # AI COMPANIES (AI Engineer adjacent roles)
+  # Backend engineering roles at AI-native companies, not ML researcher roles.
+  # ========================================================
+
+  - name: Anthropic
+    careers_url: https://job-boards.greenhouse.io/anthropic
+    api: https://boards-api.greenhouse.io/v1/boards/anthropic/jobs
+    notes: \"SF / remote. AI safety + Claude. Backend infra / AI Engineer roles.\"
+    enabled: true
+
+  - name: Cohere
+    careers_url: https://jobs.ashbyhq.com/cohere
+    notes: \"Toronto / remote. Enterprise AI/LLM provider. Backend platform engineering.\"
+    enabled: true
+
+  - name: Perplexity
+    careers_url: https://jobs.ashbyhq.com/perplexity
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/perplexity \"Senior Backend\" OR \"Staff Engineer\" OR \"AI Engineer\" backend'
+    notes: \"SF / remote. AI search platform. Backend infra + AI Engineer roles.\"
+    enabled: true
+
+  - name: LangChain
+    careers_url: https://jobs.ashbyhq.com/langchain
+    notes: \"Remote. LangChain/LangSmith framework. AI backend engineering roles.\"
+    enabled: true
+
+  - name: Arize AI
+    careers_url: https://job-boards.greenhouse.io/arizeai
+    api: https://boards-api.greenhouse.io/v1/boards/arizeai/jobs
+    notes: \"Remote. LLMOps / AI observability. Aligns with his observability expertise.\"
+    enabled: true
+
+  # ========================================================
+  # EUROPE (relocation destinations: Europe)
+  # Companies that offer relocation support and visa sponsorship.
+  # ========================================================
+
+  - name: Miro
+    careers_url: https://job-boards.greenhouse.io/mirohq
+    api: https://boards-api.greenhouse.io/v1/boards/mirohq/jobs
+    notes: \"Amsterdam / Remote. Visual collaboration SaaS. Relocation support available.\"
+    enabled: true
+
+  - name: Contentful
+    careers_url: https://job-boards.greenhouse.io/contentful
+    api: https://boards-api.greenhouse.io/v1/boards/contentful/jobs
+    notes: \"Berlin DE. Headless CMS with AI content workflows. Relocation support.\"
+    enabled: true
+
+  - name: Personio
+    careers_url: https://job-boards.greenhouse.io/personio
+    api: https://boards-api.greenhouse.io/v1/boards/personio/jobs
+    notes: \"Munich DE. HR SaaS for SMEs. Relocation support. Strong backend teams.\"
+    enabled: true
+
+  - name: Factorial
+    careers_url: https://job-boards.greenhouse.io/factorial
+    api: https://boards-api.greenhouse.io/v1/boards/factorial/jobs
+    notes: \"Barcelona ES. HR SaaS unicorn. Relocation support. Backend + distributed.\"
+    enabled: true
+
+  - name: N26
+    careers_url: https://job-boards.greenhouse.io/n26
+    api: https://boards-api.greenhouse.io/v1/boards/n26/jobs
+    notes: \"Berlin DE. Mobile neobank. Backend + payments distributed systems. Relocation.\"
+    enabled: true
+
+  - name: Trade Republic
+    careers_url: https://job-boards.greenhouse.io/traderepublicbank
+    api: https://boards-api.greenhouse.io/v1/boards/traderepublicbank/jobs
+    notes: \"Berlin / Paris. Neobroker. Platform + backend engineering. Relocation support.\"
+    enabled: true
+
+  - name: Monzo
+    careers_url: https://job-boards.greenhouse.io/monzo
+    api: https://boards-api.greenhouse.io/v1/boards/monzo/jobs
+    notes: \"London UK. Neobank. Strong distributed systems team. Visa sponsorship available.\"
+    enabled: true
+
+  - name: Tinybird
+    careers_url: https://jobs.ashbyhq.com/tinybird
+    scan_method: websearch
+    scan_query: 'site:jobs.ashbyhq.com/tinybird \"Senior Backend\" OR \"Staff Engineer\" OR \"Technical Lead\"'
+    notes: \"Remote EU. Real-time data platform for developers. Backend engineering focus.\"
+    enabled: true
+
+  # ========================================================
+  # CANADA (preferred relocation destination)
+  # ========================================================
+
+  - name: Shopify
+    careers_url: https://job-boards.greenhouse.io/shopify
+    api: https://boards-api.greenhouse.io/v1/boards/shopify/jobs
+    notes: \"Ottawa / Remote-first. E-commerce SaaS. Large distributed systems team. Strong WLB.\"
+    enabled: true
+
+  - name: Wealthsimple
+    careers_url: https://jobs.lever.co/wealthsimple
+    notes: \"Toronto CA. Fintech / investing platform. Remote-friendly. Strong backend team.\"
+    enabled: true
+
+  - name: Clio
+    careers_url: https://job-boards.greenhouse.io/clio
+    api: https://boards-api.greenhouse.io/v1/boards/clio/jobs
+    notes: \"Vancouver CA. Legal SaaS. Remote-friendly. Strong backend/cloud platform.\"
+    enabled: true
+
+  - name: Hootsuite
+    careers_url: https://job-boards.greenhouse.io/hootsuite
+    api: https://boards-api.greenhouse.io/v1/boards/hootsuite/jobs
+    notes: \"Vancouver CA. Social media management SaaS. Distributed systems.\"
+    enabled: true

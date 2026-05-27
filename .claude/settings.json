@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch",
+      "WebSearch",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{url_effective}\" \"https://boards-api.greenhouse.io/v1/boards/hashicorp/jobs\")",
+      "Bash(curl -s \"https://boards-api.greenhouse.io/v1/boards/hashicorp/jobs\")",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' https://api.ashbyhq.com/posting-api/job-board/__TRACKED_VAR__)",
+      "Bash(curl -s -o /dev/null -w '%{http_code}' https://__TRACKED_VAR__.wd1.myworkdayjobs.com/en-US/External)"
+    ]
+  }
+}

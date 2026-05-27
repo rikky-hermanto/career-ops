@@ -129,8 +129,8 @@ check_prerequisites() {
     exit 1
   fi
 
-  if ! command -v claude &>/dev/null; then
-    echo "ERROR: 'claude' CLI not found in PATH."
+  if ! command -v gemini &>/dev/null; then
+    echo "ERROR: 'gemini' CLI not found in PATH."
     exit 1
   fi
 
@@ -360,17 +360,21 @@ process_offer() {
     -e "s|{{ID}}|${esc_id}|g" \
     "$PROMPT_FILE" > "$resolved_prompt"
 
-  # Launch claude -p worker.
-  # Model defaults to the Claude Max subscription default unless --model was
-  # passed. Building the command in an array keeps quoting safe regardless.
-  local -a claude_args=(-p --dangerously-skip-permissions)
+  # Read the resolved prompt and append the user prompt
+  local full_prompt
+  full_prompt="$(cat "$resolved_prompt")
+
+$prompt"
+
+  # Launch gemini -p worker.
+  local -a gemini_args=(-y -p)
   if [[ -n "$MODEL" ]]; then
-    claude_args+=(--model "$MODEL")
+    gemini_args+=(-m "$MODEL")
   fi
-  claude_args+=(--append-system-prompt-file "$resolved_prompt" "$prompt")
+  gemini_args+=("$full_prompt")
 
   local exit_code=0
-  claude "${claude_args[@]}" > "$log_file" 2>&1 || exit_code=$?
+  gemini "${gemini_args[@]}" > "$log_file" 2>&1 || exit_code=$?
 
   # Cleanup resolved prompt
   rm -f "$resolved_prompt"

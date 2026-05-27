@@ -172,11 +172,24 @@ Career-ops is a single slash command with multiple modes:
 /career-ops tracker        → View application status
 /career-ops apply          → Fill application forms with AI
 /career-ops pipeline       → Process pending URLs
-/career-ops contacto       → LinkedIn outreach message
+/career-ops contact        → LinkedIn outreach message
 /career-ops deep           → Deep company research
 /career-ops training       → Evaluate a course/cert
 /career-ops project        → Evaluate a portfolio project
 ```
+
+/career-ops pipeline processes all the pending URLs in data/pipeline.md — it goes through each unchecked item one by one and runs a full evaluation on it:
+
+Fetches the job posting — navigates to the URL with Playwright to verify it's still active
+Evaluates the offer — scores it A–F across dimensions like role fit, comp, tech stack, company quality, location, and legitimacy
+Generates a report — saves it to reports/ in the standard format
+Creates a tailored CV PDF — generates an ATS-optimized version targeting that specific role
+Updates the tracker — adds the entry to data/applications.md with score and status
+You've got 109 new offers queued up, so running pipeline on all of them would be a massive batch. Typically you'd either:
+
+Run it selectively — pick the most promising companies (e.g. "evaluate just the Airwallex and Anthropic ones")
+Run /career-ops batch — spawns parallel workers to process many URLs simultaneously, much faster than one-by-one
+Run pipeline on a subset — e.g. "evaluate the top 10 by company quality"
 
 Or just paste a job URL or description directly -- career-ops auto-detects it and runs the full pipeline.
 
@@ -249,7 +262,7 @@ career-ops/
 │   └── profile.example.yml      # Template for your profile
 ├── modes/                       # 14 skill modes
 │   ├── _shared.md               # Shared context (customize this)
-│   ├── oferta.md                # Single evaluation
+│   ├── offer.md                 # Single evaluation
 │   ├── pdf.md                   # PDF generation
 │   ├── scan.md                  # Portal scanner
 │   ├── batch.md                 # Batch processing

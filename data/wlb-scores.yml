@@ -1,0 +1,490 @@
+# WLB Score Database
+#
+# Scale: 1.0–5.0
+#   5.0  = Exceptional (remote-by-design, 30+ PTO, GPTW® certified, mandatory shutdowns)
+#   4.0+ = Strong (remote-first, positive reviews, no burnout pattern)
+#   3.5  = Good (average tech; some flexibility but no standout signal)
+#   3.0  = Average (fintech/startup grind, mixed reviews)
+#   2.5  = Below average (burnout flagged, long-hours culture documented)
+#   1.0  = Poor (on-call 24/7, no remote, extreme crunch)
+#
+# Scoring matrix (see modes/_profile.md for full rules):
+#   Primary: Glassdoor WLB sub-rating (1–5)
+#   Bonus:   +0.3 remote-by-design / +0.2 GPTW® / +0.1 Forbes/Built In
+#   Penalty: −0.2 fintech regulatory / −0.1 hypergrowth startup
+#
+# source:
+#   glassdoor = Glassdoor WLB sub-rating (confirmed, ≥ 50 reviews preferred)
+#   est       = estimated from remote culture, GPTW, industry signals, review themes
+#
+# To update: change the score and update the date field.
+# To add a new company: normalize the key → lowercase + hyphens (e.g. "Grafana Labs" → "grafana-labs").
+
+companies:
+
+  # ── Remote / Async-first leaders ──────────────────────────────────────────
+  remote-com:
+    score: 5.0
+    basis: "Remote-by-design company; builds remote-work infrastructure; 4-day week options"
+    source: est
+    updated: 2026-05-25
+
+  grafana-labs:
+    score: 4.4
+    basis: "Glassdoor WLB 4.2–4.5; 100% remote, no HQ; 30+ days PTO + mandatory company shutdowns"
+    source: glassdoor
+    updated: 2026-05-25
+
+  gitlab:
+    score: 4.2
+    basis: "Glassdoor WLB 4.2; GPTW® certified — 92% say great place to work; async-first handbook"
+    source: glassdoor
+    updated: 2026-05-25
+
+  close:
+    score: 4.0
+    basis: "Widely cited remote-first benchmark; async culture, transparent operations"
+    source: est
+    updated: 2026-05-25
+
+  elastic:
+    score: 4.0
+    basis: "Remote-first, no HQ; GPTW® certified; distributed engineering culture"
+    source: est
+    updated: 2026-05-25
+
+  posthog:
+    score: 4.0
+    basis: "Fully remote, generous PTO, async by default; small tight team"
+    source: est
+    updated: 2026-05-25
+
+  supabase:
+    score: 4.0
+    basis: "Remote-first OSS company; no physical HQ; async-first signals"
+    source: est
+    updated: 2026-05-25
+
+  # ── Strong WLB ────────────────────────────────────────────────────────────
+  tripadvisor:
+    score: 4.1
+    basis: "Glassdoor WLB 4.1 confirmed"
+    source: glassdoor
+    updated: 2026-05-25
+
+  xero:
+    score: 4.0
+    basis: "GPTW® NZ/AU certified; repeated Best Employer recognition; flexible remote"
+    source: est
+    updated: 2026-05-25
+
+  process-street:
+    score: 3.9
+    basis: "Remote-first workflow SaaS; async culture signals"
+    source: est
+    updated: 2026-05-25
+
+  monzo:
+    score: 3.9
+    basis: "Glassdoor WLB 3.9 confirmed; 'takes WLB seriously' in multiple reviews"
+    source: glassdoor
+    updated: 2026-05-25
+
+  datadog:
+    score: 3.9
+    basis: "Glassdoor WLB 3.9 confirmed; high growth but managed pace"
+    source: glassdoor
+    updated: 2026-05-25
+
+  perplexity-ai:
+    score: 3.9
+    basis: "Glassdoor WLB 3.9 confirmed; 90% recommend; note: very few reviews (< 50)"
+    source: glassdoor
+    updated: 2026-05-25
+
+  culture-amp:
+    score: 3.9
+    basis: "Practices what they preach on people ops; quarterly refresh days; positive reviews"
+    source: est
+    updated: 2026-05-25
+
+  fastly:
+    score: 3.9
+    basis: "Distributed team, remote-friendly; no major burnout patterns found"
+    source: est
+    updated: 2026-05-25
+
+  pulumi:
+    score: 3.9
+    basis: "Remote-first developer tools; async culture signals"
+    source: est
+    updated: 2026-05-25
+
+  # ── Good WLB ──────────────────────────────────────────────────────────────
+  patch-my-pc:
+    score: 3.8
+    basis: "Small company, known-good culture; low-churn signals"
+    source: est
+    updated: 2026-05-25
+
+  safetyculture:
+    score: 3.8
+    basis: "Glassdoor WLB 3.8 confirmed; 'supportive leadership, good WLB'"
+    source: glassdoor
+    updated: 2026-05-25
+
+  tinybird:
+    score: 3.8
+    basis: "Remote-first European data startup; async culture"
+    source: est
+    updated: 2026-05-25
+
+  watershed:
+    score: 3.8
+    basis: "Mission-driven climate tech; manageable pace; values-first culture"
+    source: est
+    updated: 2026-05-25
+
+  contentful:
+    score: 3.8
+    basis: "German HQ; European WLB norms (EU labour protections); positive reviews"
+    source: est
+    updated: 2026-05-25
+
+  cloudflare:
+    score: 3.8
+    basis: "Generally positive WLB reviews; high growth but structured team"
+    source: est
+    updated: 2026-05-25
+
+  virtuous:
+    score: 3.8
+    basis: "Values-driven nonprofit tech; mission-aligned team, low-pressure signals"
+    source: est
+    updated: 2026-05-25
+
+  1password:
+    score: 3.7
+    basis: "Glassdoor WLB 3.7 confirmed; 'great remote culture' in reviews"
+    source: glassdoor
+    updated: 2026-05-25
+
+  eucalyptus:
+    score: 3.7
+    basis: "AU startup; positive culture signals; remote-friendly"
+    source: est
+    updated: 2026-05-25
+
+  intercom:
+    score: 3.7
+    basis: "Repeated 'good WLB' in employee reviews; no burnout pattern found"
+    source: est
+    updated: 2026-05-25
+
+  doit:
+    score: 3.7
+    basis: "Remote-friendly Google/AWS consultancy; distributed team"
+    source: est
+    updated: 2026-05-25
+
+  hootsuite:
+    score: 3.7
+    basis: "Canadian HQ; remote culture; no major burnout signals"
+    source: est
+    updated: 2026-05-25
+
+  workos:
+    score: 3.7
+    basis: "Small remote-first dev infra team; async by default"
+    source: est
+    updated: 2026-05-25
+
+  inngest:
+    score: 3.6
+    basis: "Small remote-first developer tools startup"
+    source: est
+    updated: 2026-05-25
+
+  anthropic:
+    score: 3.6
+    basis: "Glassdoor WLB 3.6 confirmed; burnout risk explicitly flagged in reviews"
+    source: glassdoor
+    updated: 2026-05-25
+
+  vercel:
+    score: 3.6
+    basis: "Glassdoor WLB 3.6 confirmed; fast pace; 'unsustainable chaos' review noted"
+    source: glassdoor
+    updated: 2026-05-25
+
+  webflow:
+    score: 3.6
+    basis: "Mixed reviews; growth-stage startup pace"
+    source: est
+    updated: 2026-05-25
+
+  workato:
+    score: 3.6
+    basis: "Enterprise automation; no major burnout signal but sales-driven culture"
+    source: est
+    updated: 2026-05-25
+
+  travelperk:
+    score: 3.6
+    basis: "Barcelona HQ; EU WLB norms; B-Corp values"
+    source: est
+    updated: 2026-05-25
+
+  aircall:
+    score: 3.6
+    basis: "SaaS startup; mixed reviews; no standout WLB signal"
+    source: est
+    updated: 2026-05-25
+
+  resend:
+    score: 3.5
+    basis: "Small YC-backed developer tools; async culture expected"
+    source: est
+    updated: 2026-05-25
+
+  checkly:
+    score: 3.5
+    basis: "Small remote-first startup; UTC-3 to UTC+3 window indicates async"
+    source: est
+    updated: 2026-05-25
+
+  delinea:
+    score: 3.5
+    basis: "Established security software; no major burnout pattern"
+    source: est
+    updated: 2026-05-25
+
+  nango:
+    score: 3.5
+    basis: "Small YC startup; remote-first signals"
+    source: est
+    updated: 2026-05-25
+
+  rula:
+    score: 3.5
+    basis: "Mental health startup; mission-driven; mixed scale pressure"
+    source: est
+    updated: 2026-05-25
+
+  bugcrowd:
+    score: 3.5
+    basis: "Security SaaS; no critical burnout flags"
+    source: est
+    updated: 2026-05-25
+
+  # ── Average WLB ───────────────────────────────────────────────────────────
+  langchain:
+    score: 3.4
+    basis: "AI startup in hypergrowth; fast pace; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  hinge-health:
+    score: 3.4
+    basis: "Digital health startup; scale pressure; mixed reviews"
+    source: est
+    updated: 2026-05-25
+
+  permutive:
+    score: 3.4
+    basis: "Privacy ad tech startup; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  maven-clinic:
+    score: 3.4
+    basis: "Women's health startup; growth-stage pressure"
+    source: est
+    updated: 2026-05-25
+
+  perfectserve:
+    score: 3.4
+    basis: "Healthcare SaaS; on-call dependency in domain"
+    source: est
+    updated: 2026-05-25
+
+  machinify:
+    score: 3.4
+    basis: "Healthcare AI startup; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  airwallex:
+    score: 3.3
+    basis: "Glassdoor WLB 3.3 confirmed; fintech pressure"
+    source: glassdoor
+    updated: 2026-05-25
+
+  adyen:
+    score: 3.3
+    basis: "Reviews: 'WLB talked about but not respected; long hours; burnout quietly accepted'"
+    source: est
+    updated: 2026-05-25
+
+  truelogic:
+    score: 3.3
+    basis: "Staff augmentation; WLB depends on client; variable"
+    source: est
+    updated: 2026-05-25
+
+  airalo:
+    score: 3.3
+    basis: "eSIM startup; small distributed team; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  earnin:
+    score: 3.3
+    basis: "Fintech startup; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  heard:
+    score: 3.3
+    basis: "Small fintech for freelancers; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  emerald-ai:
+    score: 3.3
+    basis: "Very early stage AI startup; limited data"
+    source: est
+    updated: 2026-05-25
+
+  happl:
+    score: 3.3
+    basis: "Very small startup; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  nightfall:
+    score: 3.3
+    basis: "Security startup; small team; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  n26:
+    score: 3.2
+    basis: "Reviews: 'corporate culture deteriorating, high employee turnover, layoffs'; neobank pressure"
+    source: est
+    updated: 2026-05-25
+
+  getyourguide:
+    score: 3.2
+    basis: "Glassdoor WLB 3.2 confirmed; 'management pushes overtime'"
+    source: glassdoor
+    updated: 2026-05-25
+
+  trade-republic:
+    score: 3.2
+    basis: "Intense fintech startup; heavy on-call expectations; few public reviews"
+    source: est
+    updated: 2026-05-25
+
+  ramp:
+    score: 3.2
+    basis: "Hypergrowth fintech; demanding culture; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  flex:
+    score: 3.2
+    basis: "Fintech startup pace; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  jeeves:
+    score: 3.2
+    basis: "Fintech startup; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  rtb-house:
+    score: 3.2
+    basis: "Ad tech; known for intense sales-driven culture"
+    source: est
+    updated: 2026-05-25
+
+  livekit:
+    score: 3.2
+    basis: "VC-backed infra startup; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  unit:
+    score: 3.2
+    basis: "Fintech infrastructure startup; limited review data"
+    source: est
+    updated: 2026-05-25
+
+  goodleap:
+    score: 3.2
+    basis: "Fintech; sales-driven culture pressure"
+    source: est
+    updated: 2026-05-25
+
+  zip-co:
+    score: 3.2
+    basis: "BNPL fintech; competitive market pressure"
+    source: est
+    updated: 2026-05-25
+
+  topstep:
+    score: 3.2
+    basis: "Trading platform; market-hours dependency"
+    source: est
+    updated: 2026-05-25
+
+  worldstrides:
+    score: 3.1
+    basis: "Education travel; seasonal crunch pressure"
+    source: est
+    updated: 2026-05-25
+
+  luxury-presence:
+    score: 3.1
+    basis: "Real estate tech startup; sales-driven"
+    source: est
+    updated: 2026-05-25
+
+  janea-systems:
+    score: 3.5
+    basis: "Glassdoor WLB sub-rating 4.1 (very low sample: 4 reviews); consulting model penalty applied; WLB client-hours dependent"
+    source: glassdoor
+    updated: 2026-05-26
+
+  afterpay-block:
+    score: 3.1
+    basis: "Jack Dorsey-era culture; fintech regulatory pressure; Glassdoor mixed"
+    source: est
+    updated: 2026-05-25
+
+  diligent:
+    score: 3.0
+    basis: "Glassdoor overall 3.0 (844 reviews); WLB sub-rating ~3.0; recharge weeks removed per recent employee reviews"
+    source: glassdoor
+    updated: 2026-05-26
+
+  livefront:
+    score: 4.2
+    basis: "Glassdoor WLB 4.2; Culture & values 5.0/5; low turnover since founding; 'interesting work, fun and supportive environment' — consulting model risk applies for deadlines"
+    source: glassdoor
+    updated: 2026-05-26
+
+  # ── Below Average WLB ─────────────────────────────────────────────────────
+  easygo:
+    score: 2.8
+    basis: "Crypto/gambling; 24/7 operations; high-churn sector"
+    source: est
+    updated: 2026-05-25
+
+  cohere:
+    score: 2.6
+    basis: "Glassdoor WLB 2.6 confirmed; only 38% recommend; 'unrealistic expectations'"
+    source: glassdoor
+    updated: 2026-05-25

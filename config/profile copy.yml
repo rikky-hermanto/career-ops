@@ -1,0 +1,225 @@
+# Career-Ops Profile Configuration
+# Updated from CV_RikkyHermanto_v260524.md
+# Last updated: 2026-05-25
+
+candidate:
+  full_name: "Rikky Hermanto Hasibuan"
+  email: "rikky.hermanto@gmail.com"
+  phone: "+628123488851"
+  location: "Bali, Indonesia (Open to Global Relocation)"
+  linkedin: "linkedin.com/in/rhermanto"
+  portfolio_url: ""
+  github: "github.com/rikky-hermanto"
+  twitter: ""
+
+target_roles:
+  primary:
+    - "Backend Engineer — AI/LLM Integration (Mid / Senior / Staff)"
+    - "Tech Lead / Engineering Manager (Backend)"
+    - "Backend Engineer — Platform / Cloud-Native (Mid / Senior / Staff)"
+  archetypes:
+    - name: "Backend Engineer — AI/LLM Integration"
+      level: "Mid/Senior/Staff"
+      fit: "primary"
+      notes: "Most differentiated angle — backend + production LLM pipelines (tool_use, failure modes, cost optimization)"
+    - name: "Tech Lead / Engineering Manager"
+      level: "Lead/Manager"
+      fit: "primary"
+      notes: "Proven across 3 consecutive companies; promoted to TL within 1 month at Quartex"
+    - name: "Backend Engineer — Platform / Cloud-Native"
+      level: "Mid/Senior/Staff"
+      fit: "primary"
+      notes: "Deepest IC track — .NET + Python, distributed systems, Azure + AWS, full observability stack"
+    - name: "Solutions Architect"
+      level: "Mid-Senior"
+      fit: "secondary"
+      notes: "Secondary; emphasize only if primary tracks aren't available at target company"
+
+narrative:
+  headline: "Senior Backend Engineer & Tech Lead | C#/.NET | LLM Integration | Distributed Systems | Cloud-Native"
+  exit_story: >
+    10+ years building scalable distributed systems, cloud-native services, and event-driven
+    backends — currently specializing in LLM integration and AI-powered backend systems.
+    Designed and shipped multi-provider LLM extraction pipelines (Gemini + Anthropic) for
+    financial document parsing, including structured output enforcement, failure mode handling,
+    and observability instrumentation. Proven tech lead across remote APAC-aligned engineering
+    teams (Australian-based companies). Adopted Elastic Leadership to grow autonomous,
+    self-organized engineering teams.
+    Open to global relocation or remote (APAC-aligned time zones) roles.
+  superpowers:
+    - "LLM integration & AI-powered backends — multi-provider pipelines (Anthropic tool_use + Gemini JSON mode), structured extraction, failure mode handling, cost optimization"
+    - "C#/.NET distributed system architecture (monolith → microservices → event-driven)"
+    - "Elastic Leadership — adapting team leadership to team maturity phase"
+    - "PostgreSQL-native design (Marten, EF Core, Supabase PostgREST, pgvector)"
+    - "Full observability stack — OpenTelemetry + Grafana LGTM (Alloy, Prometheus, Loki, Tempo)"
+    - "Auth & identity systems (Auth0, OpenID Connect, OAuth 2.0, IdentityServer4, Supabase Auth)"
+    - "Async-first, remote-native delivery across APAC timezones"
+  proof_points:
+    - name: "Quartex / INX-K2fly — Global Person Profile (GPP)"
+      url: "https://quartexsoftware.com/"
+      hero_metric: "Cloud-native multi-tenant identity platform; cut infra costs from $9K to $6K/month en route to $2K target"
+    - name: "Quartex — Decipher Mining Software"
+      url: "https://quartexsoftware.com/"
+      hero_metric: "85–98% load performance improvement on critical system modules"
+    - name: "Travlr — Multi-tenant travel SaaS platform"
+      url: "https://travlr.com/"
+      hero_metric: "30–40% BAU productivity boost via OrchardCore CMS platform; launched BBC, MTV, Nickelodeon travel portals"
+    - name: "Personal Finance App (personal project)"
+      url: "https://github.com/rikky-hermanto/personal-finance"
+      hero_metric: "Hybrid parser architecture routing deterministic CSV (zero LLM cost) vs LLM extraction (Anthropic tool_use + Gemini JSON mode); three-tier deduplication; MediatR event-driven scoring engine across 5-tier Financial Pyramid; full OpenTelemetry + Grafana LGTM observability"
+
+compensation:
+  target_range: "$60K-$150K"
+  currency: "USD"
+  minimum: "$60K"
+  location_flexibility: "Fully remote, APAC-aligned (UTC+5 to UTC+12). Open to global relocation."
+
+location:
+  country: "Indonesia"
+  city: "Ubud, Bali"
+  timezone: "UTC+8 (WITA)"
+  visa_status: "Indonesian citizen — requires EOR/contractor or employer-sponsored visa for non-remote roles"
+  onsite_availability: "Open to occasional travel / on-site sprints"
+  relocation:
+    open_to: true
+    requires_support: true  # Must offer relocation assistance from Indonesia
+    priority_order:
+      - "Nordic (Sweden, Norway, Denmark, Finland, Netherlands)"  # Top priority
+      - "England / UK"
+      - "Europe (general — Germany, Austria, Switzerland, etc.)"
+      - "Australia / New Zealand"
+      - "Canada"  # Acceptable but lower priority
+    skip: ["United States"]  # Skip US for now
+    expat_friendly: true  # Visa sponsorship, onboarding support strongly preferred
+
+job_preferences:
+  work_type: "Full-time permanent (FTE) only"
+  company_type: "Product-based companies only — no consultants, outsourcing firms, or contractors"
+  wlb_priority: true  # Prioritize companies known for good WLB and flexible culture
+  async_first_priority: true  # Strong preference for async-first, remote-first companies (Grafana/Supabase archetype)
+  culture_signals:
+    - "Async-first / remote-native mindset (TOP PRIORITY — Grafana Labs, Supabase, GitLab archetype)"
+    - "Fully distributed team with no HQ presence required"
+    - "Open-source DNA or strong public engineering culture (tech blog, OSS contributions)"
+    - "Engineering-led culture — engineering decisions are not overridden by business politics"
+    - "Best Places to Work award or equivalent"
+  preferred_company_archetypes:
+    - "Fully remote, async-first developer tooling companies (Grafana, Supabase, GitLab, PostHog)"
+    - "Open-source backed companies with distributed global teams"
+    - "Observability / infrastructure / database tooling (strong stack alignment)"
+    - "Auth / identity / security platforms (WorkOS, 1Password, Clerk)"
+  preferred_industries:
+    - "SaaS / B2B software"
+    - "Fintech / payments"
+    - "Healthtech"
+    - "Climate / sustainability tech"
+    - "Developer tooling / infrastructure"
+    - "Travel tech"
+  remote_compatibility: "Must support UTC+5 to UTC+12 overlap — not NA/EU-only remote. Base timezone: UTC+8 (Bali, WITA)."
+
+deal_breakers:
+  - "Contract, freelance, part-time, or internship roles"
+  - "Outsourcing or consulting firms (e.g. Accenture, Capgemini, Infosys, Wipro, TCS)"
+  - "Remote roles that only support North America or EU time zones (no UTC+5–+12 overlap)"
+  - "Junior / Entry-level / Graduate roles"
+  - "Non-engineering roles (QA, DevOps-only, Blockchain/Web3)"
+  - "United States relocation required"
+  - "US-only remote (EST/PST timezone only, no APAC overlap)"
+
+skills:
+  languages:
+    primary: ["C#", ".NET Core / .NET 10"]
+    secondary: ["Java", "Python (FastAPI)", "TypeScript", "JavaScript"]
+    learning: ["Go"]  # Learning phase only — not for job targeting
+    frontend: ["Vue.js", "React", "Angular", "Kendo", "Modern JS framework"]
+  architecture:
+    - "Distributed Systems"
+    - "Event-Driven Architecture (RabbitMQ, MassTransit, Azure EventGrid)"
+    - "Microservices & Distributed Monoliths"
+    - "Serverless (Azure Functions, AWS Lambda)"
+    - "Domain-Driven Design (DDD)"
+    - "CQRS / Event Sourcing"
+    - "WebSockets / SignalR / Realtime"
+  databases:
+    - "PostgreSQL (Marten, EF Core, Supabase/PostgREST)"
+    - "MS SQL"
+    - "MySQL"
+    - "Neo4j"
+    - "DynamoDB"
+    - "Elasticsearch"
+  cloud:
+    - "Azure (App Service, Functions, EventGrid, Storage, App Insights)"
+    - "AWS (EC2, RDS, API Gateway, VPC, Load Balancer, DynamoDB)"
+    - "GCP (Compute Engine, App Engine, Cloud Run, Pub/Sub via Firebase)"
+  auth_security:
+    - "Auth0"
+    - "Supabase Auth"
+    - "OpenID Connect / OAuth 2.0"
+    - "IdentityServer4"
+    - "Snyk"
+  devops:
+    - "Docker / Kubernetes"
+    - "CI/CD: Azure DevOps, GitHub Actions, Bitbucket Pipelines, Octopus Deploy"
+    - "Pulumi (IaC)"
+    - "OpenTelemetry (distributed tracing, metrics, logs — OTLP)"
+    - "Grafana stack (Alloy, Prometheus, Loki, Tempo)"
+    - "Datadog APM"
+    - "Azure Application Insights"
+    - "LaunchDarkly (feature flagging)"
+  testing:
+    - "TDD / BDD"
+    - "xUnit, Moq, NSubstitute"
+    - "Alba Integration Testing"
+    - "Cypress E2E"
+    - "Playwright E2E (TypeScript)"
+
+experience:
+  - title: "Technical Leader"
+    company: "Quartex Software (INX-K2fly)"
+    period: "Sep 2023 – Present"
+    location: "Australian-based, Remote"
+    highlights:
+      - "Promoted from Senior SE to Tech Lead within 1 month"
+      - "Reduced infra costs from $9K to $6K/month; targeting $2K/month"
+      - "85–98% performance improvement on critical load modules"
+      - "Led Global Person Profile (GPP) — multi-tenant identity platform with Auth0, RabbitMQ, AWS, Marten/PostgreSQL"
+
+  - title: "Technical Leader"
+    company: "Travlr"
+    period: "Jun 2021 – Sep 2022"
+    location: "Australian-based, Remote"
+    highlights:
+      - "Led Platform Team of 5–7 engineers through full Agile delivery cycle"
+      - "Built OrchardCore CMS platform; boosted BAU productivity 30–40%"
+      - "Launched BBC Discover Beyond, MTV Travel, Nickelodeon Travel"
+
+  - title: "Technical Leader & Senior Backend Engineer"
+    company: "Devstack & Geekseat"
+    period: "Jul 2014 – Jan 2021"
+    location: "Australian-based, Remote"
+    highlights:
+      - "Led teams of 3–5 developers through full SDLC across multiple client projects"
+      - "Developed Geekseat Core Framework — eliminated project boilerplate, accelerated onboarding"
+      - "Delivered platforms across logistics, healthcare, legal automation, real estate, and enterprise IT"
+
+  - title: "Backend Software Engineer"
+    company: "Praweda Informatika"
+    period: "Oct 2011 – Apr 2014"
+    location: "Indonesia"
+    highlights:
+      - "Bank Mandiri Custodian Supporting Application"
+      - "KSEI C-BEST Terminal (Central Depository & Book Entry Settlement System)"
+
+  - title: "Backend Software Engineer"
+    company: "Jatis Mobile"
+    period: "Sep 2009 – Apr 2011"
+    location: "Indonesia"
+    highlights:
+      - "Middleware for Samsung Galaxy Tab, Djarum Indonesia Open 2010, Bukopin, KABILA (KAI)"
+
+cv:
+  output_format: "html"  # html (default) or latex — reference: docs/CV_RikkyHermanto_v260524.md
+  # (Optional) Canva resume design ID for visual CV generation via /career-ops pdf.
+  # Find it in your Canva design URL: https://www.canva.com/design/DAxxxxxxx/...
+  # The ID starts with "D" and is 11 characters long.
+  # canva_resume_design_id: "DAxxxxxxxxx"
