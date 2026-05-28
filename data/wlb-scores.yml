@@ -476,6 +476,12 @@ companies:
     source: glassdoor
     updated: 2026-05-26
 
+  formulatrix:
+    score: 3.0
+    basis: "Onsite hardware R&D lab (Salatiga, Indonesia); Indonesian labor law applies; no remote/async signals"
+    source: est
+    updated: 2026-05-28
+
   # ── Below Average WLB ─────────────────────────────────────────────────────
   easygo:
     score: 2.8
