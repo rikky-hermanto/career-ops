@@ -222,7 +222,7 @@ Or skip the inbox entirely — just paste a job URL or description directly into
 | File | What it is |
 |------|-----------|
 | [`modes/_shared.md`](../modes/_shared.md) | Shared scoring logic, archetype detection, tool config. Updated by `node update-system.mjs`. |
-| [`modes/offer.md`](../modes/offer.md) | A–G evaluation instructions. |
+| [`modes/oferta.md`](../modes/oferta.md) | A–G evaluation instructions. |
 | [`modes/pdf.md`](../modes/pdf.md) | PDF generation pipeline. |
 | [`modes/scan.md`](../modes/scan.md) | Portal scanner instructions. |
 | [`modes/auto-pipeline.md`](../modes/auto-pipeline.md) | Auto-pipeline (paste URL → full pipeline). |
