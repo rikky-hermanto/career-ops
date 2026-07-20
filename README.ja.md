@@ -1,6 +1,10 @@
-# Career-Ops
+<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="docs/wordmark-dark.svg"><img src="docs/wordmark-light.svg" alt="career-ops" width="250" height="56"></picture></p>
 
-[English](README.md) | [Deutsch](README.de.md) | [Español](README.es.md) | [Français](README.fr.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [简体中文](README.cn.md) | [繁體中文](README.zh-TW.md) | [Українська](README.ua.md) | [Русский](README.ru.md) | [Polski](README.pl.md) | [Dansk](README.da.md) | [العربية](README.ar.md) | [हिन्दी](README.hi.md)
+<div align="center">
+
+[English](README.md) | [Español](README.es.md) | [Deutsch](README.de.md) | [Français](README.fr.md) | [Português (Brasil)](README.pt-BR.md) | [한국어](README.ko-KR.md) | [日本語](README.ja.md) | [简体中文](README.cn.md) | [繁體中文](README.zh-TW.md) | [Українська](README.ua.md) | [Русский](README.ru.md) | [Polski](README.pl.md) | [Dansk](README.da.md) | [العربية](README.ar.md) | [हिन्दी](README.hi.md)
+
+</div>
 
 <p align="center">
   <a href="https://x.com/santifer"><img src="docs/hero-banner.jpg" alt="Career-Ops マルチエージェント求職システム" width="800"></a>
@@ -63,7 +67,7 @@
 
 Career-Opsは、あらゆるAIコーディングCLIを本格的な求職コマンドセンターに変えます。スプレッドシートで応募を手動管理する代わりに、AIによる以下のパイプラインが手に入ります:
 
-- **オファーを評価** -- 構造化されたA-Fスコアリングシステム（10項目の重み付け評価軸）
+- **オファーを評価** -- 構造化されたA-F評価（5つの項目が1.0〜5.0のスコアに反映される）
 - **テーラーメイドPDFを生成** -- 各求人票に合わせてATS最適化されたCV
 - **求人ポータルを自動スキャン** （Greenhouse、Ashby、Lever、企業ページ）
 - **バッチ処理** -- サブエージェントで10件以上のオファーを並列評価
@@ -142,7 +146,7 @@ career-opsは複数のモードを持つ単一のスラッシュコマンドで�
 /career-ops tracker        → 応募ステータスを表示
 /career-ops apply          → AIで応募フォームを入力
 /career-ops pipeline       → 保留中のURLを処理
-/career-ops contact        → LinkedInアウトリーチメッセージ
+/career-ops contacto       → LinkedInアウトリーチメッセージ
 /career-ops deep           → 企業の深掘りリサーチ
 /career-ops training       → コース/資格を評価
 /career-ops project        → ポートフォリオプロジェクトを評価
@@ -209,7 +213,7 @@ career-ops/
 │   └── profile.example.yml      # プロフィールのテンプレート
 ├── modes/                       # 14個のスキルモード
 │   ├── _shared.md               # 共有コンテキスト（ここをカスタマイズ）
-│   ├── offer.md                 # 単一オファー評価
+│   ├── oferta.md                # 単一オファー評価
 │   ├── pdf.md                   # PDF生成
 │   ├── scan.md                  # ポータルスキャナー
 │   ├── batch.md                 # バッチ処理
