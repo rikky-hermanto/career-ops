@@ -53,7 +53,7 @@ Here’s a list of **high-leverage abstract classes** Amazon loves:
 
 ### 🗣️ Mental Ping Phrase:
 
-> “This is a classic Binary Search on Minimum Resource problem — the more speed/resources I use, the more likely I can meet the constraint. The valid region is monotonic, so I can binary search the smallest value that still passes.”
+> “Binary Search on Minimum Resource problem — the more speed/resources I use, the more likely I can meet the constraint. The valid region is monotonic, so I can binary search the smallest value that still passes.”
 > 
 
 ---
@@ -918,7 +918,7 @@ public int[] MaxSlidingWindow(int[] nums, int k) {
 
 ### 🗣️ Mental Ping Phrase:
 
-> “This is a classic dependency graph — I need to respect ordering, probably a DAG. Can use topo sort to find execution sequence or detect a cycle.”
+> “Dependency graph — I need to respect ordering, probably a DAG. Can use topo sort to find execution sequence or detect a cycle.”
 > 
 
 ---
