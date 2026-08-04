@@ -1,27 +1,21 @@
 # Personal data (user fills these)
 cv.md
-data/applications.md
-data/applications.db
-data/follow-ups.md
-data/salary-observations.tsv
-data/status-log.tsv
-data/assessments.tsv
-data/pipeline.md
-data/scan-history.tsv
-data/scan-runs.tsv
-data/blacklist.md
-data/pdf-index.tsv
-data/agent-inbox.md
-data/active-interviews.md
-data/reply-candidates.json
-data/parser-output/**/*.json
-!data/parser-output/.gitkeep
-!data/parser-output/**/.gitkeep
-data/cache/ats-companies/
+local/
+# Everything under data/ is generated or personal at runtime — only .gitkeep
+# placeholders are tracked (verify with `git ls-files data/`). A blanket rule
+# means a new generated file (e.g. a future log/cache addition) is covered
+# for every user automatically, with no per-filename .gitignore update needed.
+data/*
+!data/.gitkeep
+!data/offers/
+!data/parser-output/
 # Received offers/contracts, promise notes, prep reports (PII — never commit)
 data/offers/*
 !data/offers/.gitkeep
-data/upskill/
+data/parser-output/**
+!data/parser-output/**/
+!data/parser-output/.gitkeep
+!data/parser-output/**/.gitkeep
 reports/*.md
 !reports/.gitkeep
 output/*
@@ -65,8 +59,10 @@ config/benchmarks.yml
 portals.yml
 modes/_profile.md
 modes/_custom.md
+modes/_brief.md
 .update-dismissed
 .update-lock
+.manifesto-noted
 
 # Plugin layer — opt-in toggles + user-installed plugins + integrity lock (never auto-updated)
 config/plugins.yml
@@ -104,6 +100,8 @@ data/model-blacklist.json
 .claude/memory/
 .opencode/settings.local.json
 .opencode/memory/
+# OpenCode project config (often holds personal MCP/model/per-machine prefs).
+opencode.json
 career-dashboard
 career-dashboard.exe
 package-lock.json
@@ -115,8 +113,13 @@ package-lock.json
 # Planning (local scratchpad)
 plan/
 
-# Web
-.career-ops-web/logo-cache/
+# Web — runtime cache/history the dashboard writes locally; nothing here is tracked.
+.career-ops-web/
+
+# Upgrade-test fixtures are fictional system-layer data, never user data
+# (see DATA_CONTRACT.md). Re-include them past the unanchored user-layer
+# patterns above (cv.md, portals.yml).
+!test-fixtures/**
 
 # --- Local (not upstream): personal user-layer files kept out of git ---
 # Backup/duplicate copies of user config — the " copy" suffix slips past the
