@@ -152,6 +152,14 @@ export function buildHtml(payload, templatePath) {
     : "";
   const problemsBlock = letter.problems_section ? `<p>${escapeHtml(letter.problems_section)}</p>` : "";
 
+  // Valediction + typed name. A letter that just stops after the closing
+  // paragraph reads as truncated, so this defaults on; pass letter.signoff: ""
+  // (or null) to suppress it deliberately.
+  const valediction = letter.signoff === undefined ? "Kind regards," : letter.signoff;
+  const signoffBlock = valediction
+    ? `<p class="signoff">${escapeHtml(valediction)}</p>\n  <p class="signoff-name">${escapeHtml(candidate.name)}</p>`
+    : "";
+
   const replacements = {
     "{{NAME}}": escapeHtml(candidate.name),
     "{{CONTACT_LINE}}": buildContactLine(candidate),
@@ -165,6 +173,7 @@ export function buildHtml(payload, templatePath) {
     "{{PROBLEMS_BLOCK}}": problemsBlock,
     "{{CLOSING_BLOCK}}": closingBlock,
     "{{LANGUAGE_CLOSING_BLOCK}}": languageClosingBlock,
+    "{{SIGNOFF_BLOCK}}": signoffBlock,
     "{{FOOTNOTES_BLOCK}}": buildFootnotesBlock(letter.footnotes),
   };
 
