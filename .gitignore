@@ -60,6 +60,9 @@ portals.yml
 modes/_profile.md
 modes/_custom.md
 modes/_brief.md
+# Targeting presets — full snapshots of the three files above, so they carry the
+# same personal data and follow the same rule. preset.mjs itself stays tracked.
+presets/
 .update-dismissed
 .update-lock
 .manifesto-noted
