@@ -86,6 +86,7 @@ AI-powered, CLI-agnostic job search automation: pipeline tracking, offer evaluat
 | `portals.yml` | Query and company config |
 | `presets/` | Targeting presets (user layer) — one directory per preset holding a full snapshot of `config/profile.yml`, `portals.yml` and `modes/_profile.md`. `presets/_active` names the active one. `cv.md` and all history files are deliberately NOT part of a preset |
 | `preset.mjs` | Preset switcher: `list` · `current` · `use <name>` (auto-saves the outgoing preset) · `save [name]` · `new <name> --from <src>` · `diff <a> <b>` · `sync-identity` (propagates non-targeting `profile.yml` blocks to every preset) · `--self-test`. Copies byte-for-byte, never re-serializes YAML |
+| `preset-doctor.mjs` | Preset schema-drift check: missing/unknown keys vs the upstream example files, plus identity drift across presets (JSON or `--summary`) |
 | `templates/cv-template.html` | HTML template for CVs |
 | `templates/cv-template.tex` | LaTeX/Overleaf template for CVs |
 | `article-digest.md` | Compact proof points from portfolio (optional) |

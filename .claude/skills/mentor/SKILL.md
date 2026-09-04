@@ -1,1 +1,0 @@
-../../../.agents/skills/mentor/SKILL.md
