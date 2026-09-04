@@ -500,3 +500,9 @@ companies:
     basis: "Glassdoor WLB 3.5 (hybrid WFH policy praised); 60% recommend; May-2026 reviews flag very high turnover incl. CEO and unclear expectations; PE-backed 'triple the business' growth mandate (-0.1)"
     source: glassdoor
     updated: 2026-08-05
+
+  stockbit:
+    score: 4.1
+    basis: "Glassdoor WLB 4.3 (Jakarta); 87% recommend; hybrid 1 day WFO / 4 WFH; fintech/securities regulatory pressure (-0.2); recent reviews flag a push back toward WFO and unclear career progression"
+    source: glassdoor
+    updated: 2026-08-23
