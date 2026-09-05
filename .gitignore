@@ -63,6 +63,9 @@ modes/_brief.md
 # Targeting presets — full snapshots of the three files above, so they carry the
 # same personal data and follow the same rule. preset.mjs itself stays tracked.
 presets/
+# Derived summaries of the above carry the same personal data (comp floor,
+# relocation policy, deal-breakers) and follow the same rule.
+config/preset-comparison.md
 .update-dismissed
 .update-lock
 .manifesto-noted

@@ -506,3 +506,9 @@ companies:
     basis: "Glassdoor WLB 4.3 (Jakarta); 87% recommend; hybrid 1 day WFO / 4 WFH; fintech/securities regulatory pressure (-0.2); recent reviews flag a push back toward WFO and unclear career progression"
     source: glassdoor
     updated: 2026-08-23
+
+  arize-ai:
+    score: 4.4
+    basis: "Glassdoor WLB 4.5; mixed reviews on pace but mostly positive; early-stage/hypergrowth AI startup (-0.1)"
+    source: glassdoor
+    updated: 2026-09-05
