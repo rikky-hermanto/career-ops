@@ -48,15 +48,19 @@ const FILES = [
  */
 const TARGETING_BLOCKS = new Set(['target_roles', 'deal_breakers', 'job_preferences'])
 
-const ctx = (root) => ({
-  root,
-  presetsDir: join(root, 'presets'),
-  activeFile: join(root, 'presets', '_active'),
-})
+function ctx(root) {
+  return {
+    root,
+    presetsDir: join(root, 'presets'),
+    activeFile: join(root, 'presets', '_active'),
+  }
+}
 
 // ---------------------------------------------------------------- helpers
 
-const isDir = (p) => fs.existsSync(p) && fs.statSync(p).isDirectory()
+function isDir(p) {
+  return fs.existsSync(p) && fs.statSync(p).isDirectory()
+}
 
 function listPresets(c) {
   if (!isDir(c.presetsDir)) return []
@@ -73,7 +77,9 @@ function readActive(c) {
   return v || null
 }
 
-const writeActive = (c, name) => fs.writeFileSync(c.activeFile, `${name}\n`, 'utf8')
+function writeActive(c, name) {
+  fs.writeFileSync(c.activeFile, `${name}\n`, 'utf8')
+}
 
 /** Missing preset-side files, so an incomplete preset can never be switched to. */
 function missingFiles(c, name) {
@@ -89,8 +95,9 @@ function assertPreset(c, name) {
   if (missing.length) fail(`preset "${name}" is incomplete — missing ${missing.join(', ')}`)
 }
 
-const sameBytes = (a, b) =>
-  fs.existsSync(a) && fs.existsSync(b) && fs.readFileSync(a).equals(fs.readFileSync(b))
+function sameBytes(a, b) {
+  return fs.existsSync(a) && fs.existsSync(b) && fs.readFileSync(a).equals(fs.readFileSync(b))
+}
 
 /** Copy canonical -> preset. Byte-for-byte: no YAML parse, no re-encoding. */
 function snapshot(c, name) {
@@ -151,8 +158,9 @@ function splitTopLevel(text) {
   return { preamble, blocks }
 }
 
-const joinTopLevel = ({ preamble, blocks }) =>
-  (preamble ? `${preamble}\n` : '') + blocks.map((b) => b.text).join('\n')
+function joinTopLevel({ preamble, blocks }) {
+  return (preamble ? `${preamble}\n` : '') + blocks.map((b) => b.text).join('\n')
+}
 
 /**
  * Overwrite target's non-targeting blocks with source's, keeping source order.
@@ -330,7 +338,9 @@ function selfTest() {
   writeActive(c, 'alpha')
   restore(c, 'alpha')
 
-  const snapshotOf = () => FILES.map((f) => fs.readFileSync(join(tmp, f.canonical)))
+  function snapshotOf() {
+    return FILES.map((f) => fs.readFileSync(join(tmp, f.canonical)))
+  }
 
   check('use round-trip is byte-identical', () => {
     const before = snapshotOf()

@@ -71,7 +71,9 @@ function keyPaths(value, prefix = '', out = new Set()) {
   return out
 }
 
-const isExempt = (path) => SCHEMA_EXEMPT_PREFIXES.some((p) => path === p || path.startsWith(`${p}.`))
+function isExempt(path) {
+  return SCHEMA_EXEMPT_PREFIXES.some((p) => path === p || path.startsWith(`${p}.`))
+}
 
 /** Stable stringify so two parsed blocks can be compared for equality. */
 function canonical(value) {
