@@ -92,6 +92,8 @@ plugins.lock
 **/*.tsbuildinfo
 
 # Generated
+# Local dependency and tooling caches
+/.cache/
 .resolved-prompt-*
 node_modules
 bun.lock
@@ -216,3 +218,4 @@ documents/*
 # Intake fingerprints — the recorded source filenames may themselves carry
 # PII (e.g. cv/jane-doe-master-cv.pdf). #1723
 data/intake-state.json
+cv_projects.md
