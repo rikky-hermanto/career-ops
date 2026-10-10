@@ -64,6 +64,7 @@ import { loadProviders, resolveProvider } from './providers/_registry.mjs';
 import { flagValue, hasFlag, validateFlags } from './lib/cli-flags.mjs';
 import { getCareerOpsRoot } from './path-resolver.mjs';
 import { isMainModule } from './lib/is-main-module.mjs';
+import { DEFAULT_SMALL_THRESHOLD, isSmallBoard, smallBoardDetail } from './lib/small-board.mjs';
 
 // Anchored, not cwd-relative. Both paths below used to be bare relative
 // strings, which silently audited nothing the moment the script was invoked
@@ -84,8 +85,8 @@ const CODE_ROOT = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_PORTALS_PATH = process.env.CAREER_OPS_PORTALS || join(ROOT, 'portals.yml');
 export const PROVIDERS_DIR = join(CODE_ROOT, 'providers');
 
-/** Boards at or under this many postings are worth a second look, not an error. */
-export const DEFAULT_SMALL_THRESHOLD = 5;
+// Shared with discover-ats.mjs so the two tools agree on what a small board is.
+export { DEFAULT_SMALL_THRESHOLD };
 
 /**
  * A board that loses this fraction of its postings since the baseline is
@@ -144,8 +145,8 @@ export function classifyBoard(result, { smallThreshold = DEFAULT_SMALL_THRESHOLD
   // A threshold of 0 disables the tier rather than flagging every board: the
   // `<=` below would otherwise never fire, which is the same thing, but saying
   // so here keeps `--small-threshold 0` from reading as a bug.
-  if (smallThreshold > 0 && jobs.length <= smallThreshold) {
-    return { verdict: 'small', count: jobs.length, detail: `only ${jobs.length} posting(s) — confirm this is the right board` };
+  if (isSmallBoard(jobs.length, smallThreshold)) {
+    return { verdict: 'small', count: jobs.length, detail: smallBoardDetail(jobs.length) };
   }
   return { verdict: 'ok', count: jobs.length, detail: `${jobs.length} postings` };
 }
@@ -376,11 +377,19 @@ const USAGE = `Usage:
 
 async function main() {
   const args = process.argv.slice(2);
-  if (hasFlag(args, '--help') || hasFlag(args, '-h')) {
-    console.log(USAGE);
-    return;
-  }
-  validateFlags(args, KNOWN_FLAGS, USAGE, { valueFlags: VALUE_FLAGS });
+  // validateFlags handles --help itself, and handles it LAST — after the
+  // unrecognized-flag and missing-operand checks. The manual pre-check that used
+  // to sit here inverted that order, which is the bug CodeRabbit caught on
+  // #2745/#2746: `--help --bogus` exited 0 having never looked at `--bogus`,
+  // and `--file --help` printed usage instead of reporting the missing operand.
+  //
+  // requireOperand: nothing here rejects a missing operand. A trailing `--file`
+  // fell back to the default portals.yml, a trailing `--company` audited every
+  // board instead of one, and a trailing `--baseline` skipped the comparison
+  // entirely — each of them silently, at exit 0, reporting on inputs nobody
+  // asked for. `--small-threshold` keeps its own SHAPE check below (a
+  // non-negative number); this only adds the presence check it lacked.
+  validateFlags(args, KNOWN_FLAGS, USAGE, { valueFlags: VALUE_FLAGS, requireOperand: true });
 
   const filePath = flagValue(args, '--file') || DEFAULT_PORTALS_PATH;
   const only = flagValue(args, '--company');
