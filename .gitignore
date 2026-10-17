@@ -275,3 +275,6 @@ data/interview-prep/
 /tectonic.exe
 /tectonic.part
 /tectonic.part.exe
+
+# Local scratch (python deps, uv cache, draft skill updates)
+/tmp/
